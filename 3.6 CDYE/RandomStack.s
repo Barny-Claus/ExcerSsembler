@@ -2,20 +2,7 @@
 //@@ Depto de Sistemas y Computación
 //@@ Ing.En Sistemas Computacionales
 
-/*@@ Autor : Hernández Fernández Diana @DianaHFer
-//@@ Repositorio: https://github.com/tectijuana/li20b3ej-4-DianaHFer(REPOSITORIO PRIVADO)
-//@@ Fecha de revisión : Miercoles 01 de Diciembre del 2020.
-tec@raspberrypi:~/profe $ nano stack.s
-tec@raspberrypi:~/profe $ as -o stack.o stack.s
-tec@raspberrypi:~/profe $ ld -o stack stack.o
-ld: warning: cannot find entry symbol _start; defaulting to 00010054
-tec@raspberrypi:~/profe $ ./stack
-Segmentation fault
-tec@raspberrypi:~/profe $ echo ?
-?
-tec@raspberrypi:~/profe $ echo $?
-0
-tec@raspberrypi:~/profe $ */
+
 
 //@ Objetivo del programa :
 
