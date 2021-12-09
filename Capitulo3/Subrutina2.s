@@ -23,7 +23,7 @@ bucle:  bl  myrand //llamamos myrand para los números
   bne bucle 
   pop {r4, r5}
   bx  lr
-/*traducciones de los métodos myrand y mysrand de c
+/*traducciones de los métodos myrand y mysrand de c*/
 myrand: ldr r1, =seed 
   ldr r0, [r1]
   ldr r2, [r1, #4]
