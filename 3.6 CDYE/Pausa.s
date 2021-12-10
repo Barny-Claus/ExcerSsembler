@@ -1,29 +1,20 @@
-@ delayExample.s
-@ D. Thiebaut
-@ outputs "Hello World!" 10 times with 1 sec
-@ or 0.5 sec delay between each output.
-@ Use the function sleep() for second delays,
-@ and the function usleep() for finer delays.	https://github.com/tectijuana/interfaz
-
-
-@ ---------------------------------------
-@	Data Section
-@ ---------------------------------------
-	
+/*Instito tecnológico de Tijuana
+* Lenguaje de interfaz
+* Autor: Rodriguez Moreno Omar Gamaliel
+* 13/12/2021
+* Realiza 10 Hola mundo con uno o medio segundo de delay
+*/	
 	.data
 	.balign 4	
-hello:  .asciz "Hello World!\n\n"
+hello:  .asciz "Hola mundo!\n\n"
 seconds:
-	.int	1		@ 1 sec
+	.int	1		// 1 segundo
 microsec:
-	.int	500000		@ 0.5 sec
+	.int	500000		// medio segundo
 	
-n	.req    r6              @ counter
-max	.req	r5		@ max # iterations
+n	.req    r6              //contador
+max	.req	r5		// maximo de veces
 
-@ ---------------------------------------
-@	Code Section
-@ ---------------------------------------
 	
 	.text
 	.global main
@@ -31,30 +22,26 @@ max	.req	r5		@ max # iterations
 	.extern sleep
 	.extern usleep
 	
-main:   push 	{ip, lr}	@ push return address + dummy register
-				@ for alignment
-
+main:   push 	{ip, lr}	
 	mov	n, #0
 	mov	max, #10
 	
-loop:	cmp	n, max		@ n>max?
-	bgt	done		@ yes, done
-				@ no, output string
+loop:	cmp	n, max		//Nos aseguramos si n es mayor que el maximo
+	bgt	done		//sino sacamos el string
 	
         ldr 	r0, =hello
-        bl 	printf		@ print string and r1 as param
+        bl 	printf		
 
-@	ldr	r0, =seconds	@ use sleep for integer # of 
-@	ldr	r0, [r0]	@ seconds
+@	ldr	r0, =seconds	//usamos sleep para los segundos
+@	ldr	r0, [r0]	
 @	bl	sleep
 
-	ldr	r0, =microsec	@ use usleep for microsecond
-	ldr	r0, [r0]	@ delays.
+	ldr	r0, =microsec	//usleep es para microsegundos, en este caso medio sec
+	ldr	r0, [r0]	
 	bl	usleep
 	
-	add	n, #1		@ n++
+	add	n, #1		//aumentamos contador en 1
 	b	loop
 
 done:	
-        pop 	{ip, pc}	@ pop return address into pc
-
+        pop 	{ip, pc}	
