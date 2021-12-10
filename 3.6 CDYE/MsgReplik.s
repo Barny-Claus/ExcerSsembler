@@ -1,6 +1,3 @@
-@ greet.s - a little asm greeter.
-programa corto que obtiene la entrada del teclado y luego lo imprime de nuevo en la pantalla.
-
 /*Instito tecnológico de Tijuana
 * Lenguaje de interfaz
 * Autor: Rodriguez Moreno Omar Gamaliel
